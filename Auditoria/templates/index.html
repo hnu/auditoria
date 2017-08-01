@@ -22,7 +22,7 @@
                 {% for mv in mvs %}
                 <tr>
                     <td>
-                        <center><p><font size="24"><a>{{ mv[0] }}</a></font></p></center>
+                        <center><p><font size="24"><a href="#" onclick="cargarVotos({{mv[0]}})">{{ mv[0] }}</a></font></p></center>
                         <center>en-conteo</center>
                     </td>
 
@@ -51,24 +51,19 @@
                 </tr>
                    {% endfor %}
 
-
-
-
-
-                {% for user in users %}
-                <tr id="row_{{ user[0] }}">
-                    <td>{{ user[2] }}</td>
-                    <td>{{ user[1]}}</td>
-                    <td>{{ user[3] }}</td>
-                    <td><a href="#" onclick="edit_user({{ user[0] }})">Modificar</a> &nbsp; <a href="#" onclick="delete_user({{ user[0] }})">Eliminar</a></td>
-                </tr>
-                {% endfor %}
             </tbody>
         </table>
     </div>
 
 
 </div>
+
+<form id="sendform" action="cargarvotos" method="post">
+    <input type="text" id="mv" name="mv"/></input>
+</form>
+
+<script src="/static/scripts/index.js"></script>
+
 
 
 

@@ -1,0 +1,13 @@
+C:\Users\Hector\Dropbox\ucv\auditoria\sr_clone\Auditoria\Auditoria\bin\Microsoft.PythonTools.WebRole.dll
+C:\Users\Hector\Dropbox\ucv\auditoria\sr_clone\Auditoria\Auditoria\obj\Debug\attach_server.py
+C:\Users\Hector\Dropbox\ucv\auditoria\sr_clone\Auditoria\Auditoria\obj\Debug\visualstudio_py_debugger.py
+C:\Users\Hector\Dropbox\ucv\auditoria\sr_clone\Auditoria\Auditoria\obj\Debug\visualstudio_py_repl.py
+C:\Users\Hector\Dropbox\ucv\auditoria\sr_clone\Auditoria\Auditoria\obj\Debug\visualstudio_py_util.py
+C:\Users\Hector\Dropbox\ucv\auditoria\sr_clone\Auditoria\Auditoria\obj\Debug\__init__.py
+C:\Users\Hector\Dropbox\ucv\auditoria\sr_clone\Auditoria\Auditoria\obj\Debug\__main__.py
+C:\Users\Hector\Dropbox\ucv\auditoria\sr_clone\Auditoria\Auditoria\bin\AzureSetup.cfg
+C:\Users\Hector\Dropbox\ucv\auditoria\sr_clone\Auditoria\Auditoria\bin\Microsoft.PythonTools.AzureSetup.exe
+C:\Users\Hector\Dropbox\ucv\auditoria\sr_clone\Auditoria\Auditoria\bin\Microsoft.PythonTools.AzureSetup.exe.config
+C:\Users\Hector\Dropbox\ucv\auditoria\sr_clone\Auditoria\Auditoria\bin\wfastcgi.py
+C:\Users\Hector\Dropbox\ucv\auditoria\sr_clone\Auditoria\Auditoria\obj\Debug\web.config
+C:\Users\Hector\Dropbox\ucv\auditoria\sr_clone\Auditoria\Auditoria\obj\Debug\web.debug.config

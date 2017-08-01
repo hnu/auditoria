@@ -80,8 +80,6 @@ u1.id = mv.asistente_id and u2.id = mv.auditor_id and u1.id=%d"""%session['uid']
          #   print(cod_cuad)
 
 
-
-
     """Renders the home page."""
     return render_template(
         'index.html',
@@ -101,6 +99,59 @@ def contact():
         message='Your contact page.'
     )
 
+@app.route('/cargarvotos', methods = ['POST'])
+def cargarvotos():
+    global db_address, db_user, db_pass, db_name
+
+    if not 'user' in session:
+        return redirect(url_for('login'))
+
+    con = mysql.connect(db_address, db_user, db_pass, db_name)
+    
+    mv = request.form['mv']
+    #mv = request.form['mv']
+
+    with con:
+        cur = con.cursor()
+        sql = """select tm.codigo,tm.mesa,tm.nombre,e.nombre,m.nombre,p.nombre
+from tabla_mesa tm, estado e, municipio m, parroquia p,mv
+where mv.id=%s and tm.id=mv.id_tm and tm.id_estado=e.id and tm.id_estado=m.id_estado and tm.id_municipio=m.id_municipio and
+tm.id_estado=p.id_estado and tm.id_municipio=p.id_municipio and tm.id_parroquia=p.id_parroquia"""%(mv)
+        cur.execute(sql)
+        data = cur.fetchone()
+
+        sql = """select * from cargo_clase where id>=100"""
+        cur.execute(sql)
+
+        sectorial = []
+
+        for row in cur:
+            fila = {}
+            fila['id'] = row[0]
+            fila['nombre'] = row[1]
+            sectorial.append(fila)
+
+        # ahora buscamos para ese estado los candidatos validos territoriales
+        # ahora los candidatos validos sectoriales nacionales
+        # candidtaos validos sectoriales municipales
+        # candidatos validos sectoriales regionales
+
+    return render_template(
+        'cargarvotos.html',
+        title='Transcripción de Comprobantes',
+        mv = mv,
+        codcentro = data[0],
+        nombre_centro = data[2],
+        edo = data[3],
+        mun = data[4],
+        parr = data[5],
+        mesa = data[1],
+        sectorial = sectorial
+
+    )
+
+
+        
 @app.route('/asignacion')
 def asignacion():
 

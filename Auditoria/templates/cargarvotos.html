@@ -1,0 +1,46 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+
+<body>
+    <form>
+        <div class="form-group">
+            <label style="color:forestgreen;">MV: {{mv}} - Comprobantes transcritos: 10, Total seg&uacute;n acta: 0, Total seg&uacute;n cuaderno: 0</label>
+        </div>
+        <div class="form-group">
+            <label><strong>Centro: </strong>{{codcentro}} - {{nombre_centro}} - {{edo}} - {{mun}} - {{ parr }} - <strong>Mesa: </strong> {{mesa }}</label>
+        </div>
+
+        <div class="form-group">
+            <label style="color:forestgreen;">Constituyente Territorial</label>
+            <input id="territorial" type="text" />
+        </div>
+
+        <div class="form-group">
+            <label style="color:forestgreen;">Constituyente Sectorial</label>
+            <select id="sector">
+                <option value="0">N/A</option>
+                {% for sector in sectorial %}
+                <option value="{{sector.id}}">{{sector.nombre}}</option>
+                {% endfor %}
+            </select>
+            <input id="sectorial" type="text" />
+        </div>
+
+
+
+        <div class="form-group">
+            <button class="btn btn-primary btn-block" onclick="sendData()" type="button">Registrar Voto</button>
+        </div>
+
+        <div class="alert alert-success" role="alert" id="message"><span><strong>Alerta</strong> text.</span></div>
+</form>
+
+    <script src="/static/scripts/cargarvotos.js"></script>
+
+</body>
+
+
+    {% endblock %}
