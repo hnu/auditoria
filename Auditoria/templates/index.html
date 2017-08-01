@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Principal</h1>
+
+    <center><h2>MVs</h2></center>
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th><center># c&oacute;digo auditor&iacute;a</center></th>
+                    <th><center>Datos</center></th>
+                </tr>
+            </thead>
+            <tbody>
+
+
+
+                {% for mv in mvs %}
+                <tr>
+                    <td>
+                        <center><p><font size="24"><a>{{ mv[0] }}</a></font></p></center>
+                        <center>en-conteo</center>
+                    </td>
+
+                    <td>
+                        <font size="1">
+                            ({{ ccvs[0] }}) {{ mv[1] }} - {{ mv[3] }} - {{ mv[5]}} - {{ mv[6] }}, - {{ mv[7] }} - Mesa: {{ mv[2] }}</font><br />
+                            <table width="100%">
+                                <tr>
+                                    <td><font size="2">Estacion: <strong>{{mv[10]}}</strong></font></td>
+                                    <td><font size="2">Asistente: <strong>{{mv[8]}}</strong></font></td>
+                                    <td><font size="2">Auditor: <strong>{{mv[9]}}</strong></font></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3"><font size="2"><center>ACTAS DE CONTEO MANUAL</center></font></td>
+                                </tr>
+
+                                <tr>
+                                    <td>STATUS</td>
+                                    <td>Nombre Cargo</td>
+                                    <td>Cantidad reconteos: 0</td>
+                                </tr>
+
+
+                            </table>
+</td>
+                </tr>
+                   {% endfor %}
+
+
+
+
+
+                {% for user in users %}
+                <tr id="row_{{ user[0] }}">
+                    <td>{{ user[2] }}</td>
+                    <td>{{ user[1]}}</td>
+                    <td>{{ user[3] }}</td>
+                    <td><a href="#" onclick="edit_user({{ user[0] }})">Modificar</a> &nbsp; <a href="#" onclick="delete_user({{ user[0] }})">Eliminar</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,52 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+
+<body>
+    <form>
+        <div class="form-group">
+            <label style="color:forestgreen;">Asistente: </label><label>{{ session.realname }}</label>
+        </div>
+
+        <div class="form-group">
+            <label style="color:forestgreen;">Auditor: </label>
+            <select id="auditor">
+                <optgroup label="Seleccione un auditor"></optgroup>
+                {% for user in users %}
+                <option value="{{user[0]}}">{{user[1]}}</option>
+                {% endfor %}
+
+            </select>
+            </div>
+
+        <div class="form-group">
+            <label style="color:forestgreen;">Estación</label>
+            <select id="estacion">
+                <optgroup label="Seleccione una estación"></optgroup>
+                {% for station in stations %}
+                <option value="{{station[0]}}">{{station[0]}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label style="color:forestgreen;">MV</label>
+            <input type="text" id="mv"/>Puede colocar el código de auditoría o el CCV. Ejemplo 12 ó 120102003011
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary btn-block" onclick="sendData()" type="button">Registrar</button>
+        </div>
+
+        <div class="alert alert-success" role="alert" id="message"><span><strong>Alerta</strong> text.</span></div>
+</form>
+
+    <script src="/static/scripts/asignacion.js"></script>
+    <script src="/static/scripts/utils.js"></script>
+
+</body>
+
+
+    {% endblock %}

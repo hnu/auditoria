@@ -1,0 +1,31 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+
+<div class="login-clean">
+    <form method="post" action="process_login">
+        <h2 class="sr-only">Login Form</h2>
+        <div class="form-group">
+            <input type="text" name="user" placeholder="Cédula" class="form-control" id="user" />
+        </div>
+        <div class="form-group">
+            <input type="password" name="password" placeholder="Clave" class="form-control" id="password"/>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-block" onclick="sendData()" type="button">Log In</button>
+        </div>
+
+        <div class="alert alert-success" role="alert" id="message"><span><strong>Alert</strong> text.</span></div>
+        
+        <!----<a href="#" class="forgot">Forgot your email or password?</a>-->
+    </form>
+</div>
+
+<script src="/static/scripts/login.js"></script>
+
+{% endblock %}
+
+
+

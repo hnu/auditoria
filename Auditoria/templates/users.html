@@ -1,0 +1,85 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+
+
+
+
+<div class="modal fade" id="editDialog" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modificar Usuario</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <label>Nombre</label>
+                    <input type="text" class="form-control" id="realname" />
+                    <label>C&eacute;dula</label>
+                    <input type="text" class="form-control" id="username" />
+                    <label>Clave</label>
+                    <input type="password" class="form-control" id="userpass" onchange="pass_changed()" />
+                    <label>Tipo</label>
+                    <select class="form-control" id="usertype">
+                        <optgroup label="Seleccione tipo de usuario">
+                            <option value="0" selected>Admin</option>
+                            <option value="1">Coordinador</option>
+                            <option value="2">Auditor</option>
+                            <option value="3">Asistente</option>
+                        </optgroup>
+                    </select>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="edit_store()">Guardar Cambios</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+  <a href="#" onclick="new_user()">Agregar</a>
+
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>C&eacute;dula</th>
+                        <th>Tipo</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="table_body">
+                    {% for user in users %}
+                    <tr id="row_{{ user[0] }}">
+                        <td>{{ user[2] }}</td>
+                        <td>{{ user[1]}}</td>
+                        <td>{{ user[3] }}</td>
+                        <td><a href="#" onclick="edit_user({{ user[0] }})">Modificar</a> &nbsp; <a href="#" onclick="delete_user({{ user[0] }})">Eliminar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    <script src="/static/scripts/users.js"></script>
+
+  <script>
+      var users = {}
+      {% for user in users %}
+      users[{{user[0]}}] = new User({{user[0]}}, '{{ user[2]}}', '{{ user[1] }}', {{user[3]}})
+    {% endfor %}
+
+  </script>
+
+    {% endblock %}
+
+
+
